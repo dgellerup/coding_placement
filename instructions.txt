@@ -1,0 +1,100 @@
+1)
+Create a function "count_to_50" that returns a list of numbers, 1-50.
+
+2)
+Create a function "count_evens_100" that returns a list of even numbers, 2-100.
+
+3)
+Create a function "count_odds" that returns a list of odd numbers between a range defined by positional arguments (arg1: int, arg2: int). arg2 will be >= arg1.
+
+4)
+Create a function "count_apples" that accepts a list of strings, "fruit_list", and returns the number of entries that contain the string 'apple' in fruit_list.
+
+5)
+Create a function "count_apples_2" that accepts a list of strings, "fruit_list", and returns the number of instances of the exact string 'apple' in fruit_list.
+
+6)
+Create a function "is_green" that accepts a string, "color", and returns True if color is "green", otherwise returns False.
+
+7)
+Create a function "transform_colors" that accepts a list of strings, "color_list". The function should return a list of substituted values for each item in color_list as follows:
+'green' replaced with 'red'
+'red' replaced with 'blue'
+any other color replaced with 'black'
+
+example input: ['green', 'green']
+example output: ['red', 'red']
+
+8)
+Create a function "count_sequence_names" that accepts a string file path, "test_file". file is a relative path to a FASTA genetic sequence file. The function should read the file and treat each header (lines starting with '>') as a sequence name.
+The function should return a dictionary in which each key represents a unique sequence name, and each value represents the number of times that sequence name appears in the file.
+
+example file contents:
+>seq1
+AAAAAAAAA
+>seq2
+TTTTTTTTT
+>seq1
+AAAAAAAAA
+
+example function output:
+{
+    '>seq1': 2,
+    '>seq2': 1
+}
+
+9)
+Create a function "count_sequence" that accepts the positional arguments 
+('file': str, 'sequence_name': str). file is a relative path to a FASTA 
+genetic sequence file. sequence_name is a string.
+The function should read the file and treat each header (lines starting with 
+'>') as a sequence name; other lines should be treated as genetic sequence 
+data.The function should return the number of sequences with names 
+that match sequence_name.
+
+example file contents:
+>seq1
+AAAAAAAA
+>seq2
+TTTTTTTT
+>seq1
+AAAAAAAA
+
+example sequence_name arg: '>seq2'
+
+example output: 1
+
+10)
+Create a function "identify_most_common_sequence" that acceps a string file path, "file". file is a relative path to a FASTA genetic sequence file.
+The function should read the file and treat each header (lines starting with '>') as a sequence name; other lines should be treated as genetic sequence data.
+The function should return the number of occurrences of the most common genetic sequence in file.
+
+example file contents:
+>seq1
+AAAAAAAA
+>seq2
+TTTTTTTT
+>seq1
+AAAAAAAA
+
+example output: 2
+
+11)
+Create a function "wrapper" that accepts an Callable argument (a python 
+function) "x". wrapper should return a list of results obtained by calling 
+x twice, first with string argument "Success" and second with string argument
+ "Fail".
+
+12)
+Create a class "FastaReader" that accepts a string file path. On initialization, 
+the class should read the file and treat each header (lines starting with ">") 
+as a sequence name; other lines should be treated as genetic sequence data.
+The class should include three Object attributes:
+"names" (List[str]): a list of strings. The list should be all sequence names in order of appearance in the file.
+"sequences" (List[str]): a list of strings. The list should be all sequence data lines in order of appearance in the file.
+"reads" (List[Tuple[str]]): a list of tuple objects. Each tuple should contain a sequence name in position [0] and its corresponding sequence in position[1].
+
+The class should include a class method "get_reads" which returns the object's "reads" attribute value.
+
+example input: fasta_reader = FastaReader(file_path)
+example output (fasta_reader.get_reads()): [(">seq1", "AACCTTGG"), (">seq2", "CCGGTTAA")]
